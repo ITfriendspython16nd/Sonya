@@ -15,10 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from blog import views
+from blog.views import *
 
-urlpatterns = [
+from django.conf import settings
+from django.conf.urls.static import static
+
+
+urlpatterns = 
     path('admin/', admin.site.urls),
-    path('', views.index)
-    # path ('<int:pk>', detail)
-]
+    path('', index, name='home'),
+    path('<int:pk>/', detail, name='detail'),
+    path('login', view_login, name='login'),
+    path(delt/, edit,name= "edit"),
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
